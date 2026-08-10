@@ -15,6 +15,8 @@ public class OptionsController : MonoBehaviour
     [SerializeField] private Button difficultyButton;
     [SerializeField] private TMP_Dropdown difficultyDropDown;
     [SerializeField] private Button applyButton;
+    [SerializeField] private GameObject menuOption;
+    [SerializeField] private GameObject optionMenu;
     private void Awake()
     {
         if (Instance == null)
@@ -44,6 +46,8 @@ public class OptionsController : MonoBehaviour
         applyButton.onClick.AddListener(() =>
         {
             SetDifficultyLevel();
+            menuOption.SetActive(true);
+            optionMenu.SetActive(false);
         });
         Debug.Log(difficultyDropDown);
     }

@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentLevel: 1
+  startingLevelIndex: 2
 --- !u!4 &25778648
 Transform:
   m_ObjectHideFlags: 0

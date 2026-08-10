@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private int currentLevel;
+    [SerializeField] private int startingLevelIndex;
     public static LevelManager Instance;
 
     private void Awake()
@@ -22,12 +23,13 @@ public class LevelManager : MonoBehaviour
     }
     public void RestartLevel()
     {
-        SceneManager.LoadScene(currentLevel);
+        SceneManager.LoadScene(startingLevelIndex);
     }
     public void NextLevel()
     {
+        startingLevelIndex++;
         currentLevel++;
-        SceneManager.LoadScene(currentLevel);
+        SceneManager.LoadScene(startingLevelIndex);
     }
     public int GetCurrentLevel()
     {
