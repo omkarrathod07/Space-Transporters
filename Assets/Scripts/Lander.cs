@@ -10,7 +10,7 @@ public class Lander : MonoBehaviour
     private float force = 700f;
     private float torque = 100f;
     private Rigidbody2D landerRigidbody2D;
-    private float fuelAmount = 5;
+    private float fuelAmount = 7;
     private float maxFuelAmount = 10f;
     private const float GRAVITY_NORMAL = 0.7f;
     public event EventHandler onUpForce;
@@ -40,6 +40,7 @@ public class Lander : MonoBehaviour
         landerRigidbody2D = GetComponent<Rigidbody2D>();
         Instance = this;
         landerRigidbody2D.gravityScale = 0f;
+        SetInitFuel(OptionsController.Instance.GetDifficultyLevel());
         SetState(State.WaitingToStart);
     }
     private void FixedUpdate()
@@ -197,5 +198,9 @@ public class Lander : MonoBehaviour
     public float GetFuelAmountNormalized()
     {
         return fuelAmount / maxFuelAmount;
+    }
+    public void SetInitFuel(int difficultyLevel)
+    {
+        fuelAmount -= difficultyLevel;
     }
 }
