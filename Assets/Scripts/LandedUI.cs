@@ -33,10 +33,15 @@ public class LandedUI : MonoBehaviour
 
     private void Lander_onLanded(object sender, Assets.Scripts.onLandedEventArgs e)
     {
-        if(e.landingType == Lander.LandingType.Success)
+        if (e.landingType == Lander.LandingType.Success)
         {
             bannerTitleText.text = "SUCCESSFUL LANDING!";
             nextButton.gameObject.SetActive(true);
+        }
+        else if (e.landingType == Lander.LandingType.WrongLandingArea) 
+        {
+            bannerTitleText.text = "LANDER CHARSHED";
+            nextButton.gameObject.SetActive(false);
         }
         else
         {
