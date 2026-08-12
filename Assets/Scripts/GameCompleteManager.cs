@@ -10,7 +10,7 @@ public class GameCompleteManager : MonoBehaviour
     {
         menuButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(1);
+            Application.Quit();
         });
     }
 }
