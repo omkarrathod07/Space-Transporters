@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +11,14 @@ public class GameCompleteManager : MonoBehaviour
     {
         menuButton.onClick.AddListener(() =>
         {
-            Application.Quit();
+            OptionsController.Instance.GetDesrtoy();
+            LevelManager.Instance.GetDestroy();
+            Invoke("GotoStartMenu", 2f);
         });
+    }
+
+    private void GotoStartMenu()
+    {
+        SceneManager.LoadScene(1);
     }
 }

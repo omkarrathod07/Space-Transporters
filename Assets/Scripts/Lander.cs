@@ -1,9 +1,11 @@
 using Assets.Scripts;
 using System;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.WSA;
 
 public class Lander : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Lander : MonoBehaviour
     private Rigidbody2D landerRigidbody2D;
     private float fuelAmount = 7;
     private float maxFuelAmount = 10f;
+    private float health = 10f;
     private const float GRAVITY_NORMAL = 0.7f;
     public event EventHandler onUpForce;
     public event EventHandler onRightForce;
@@ -127,16 +130,23 @@ public class Lander : MonoBehaviour
         int score;
 
         if (!collision2D.gameObject.TryGetComponent(out LandingPad landingPad)) {
-            onLanded?.Invoke(this, new onLandedEventArgs
+            if (GetHealth() <= 2)
             {
-                landingType = LandingType.WrongLandingArea,
-                landingAngle = 0,
-                landingSpeed = 0,
-                scoreMultiplier = 0,
-                score = 0,
-            });
-            SetState(State.GameOver);
-            return;
+                onLanded?.Invoke(this, new onLandedEventArgs
+                {
+                    landingType = LandingType.WrongLandingArea,
+                    landingAngle = 0,
+                    landingSpeed = 0,
+                    scoreMultiplier = 0,
+                    score = 0,
+                });
+                SetState(State.GameOver);
+                return;
+            }
+            else
+            {
+                LanderDamage(OptionsController.Instance.GetDifficultyLevel());
+            }            
         }
         if (relativeVelocityMagnitude > softLandingVelocityMahnitude)
         {
@@ -202,5 +212,14 @@ public class Lander : MonoBehaviour
     public void SetInitFuel(int difficultyLevel)
     {
         fuelAmount -= difficultyLevel;
+    }
+    public float GetHealth()
+    {
+        return health;
+    }
+    private void LanderDamage(int difficultyLevel)
+    {
+        health -= (difficultyLevel + 2);
+        Debug.LogWarning("Health:" + GetHealth());
     }
 }
