@@ -49,7 +49,6 @@ public class OptionsController : MonoBehaviour
             menuOption.SetActive(true);
             optionMenu.SetActive(false);
         });
-        Debug.Log(difficultyDropDown);
     }
 
     public void SetDifficultyLevel()
