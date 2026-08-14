@@ -61,4 +61,8 @@ public class OptionsController : MonoBehaviour
     {
         return difficultyLevel;
     }
+    public void GetDesrtoy()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -34,5 +35,9 @@ public class LevelManager : MonoBehaviour
     public int GetCurrentLevel()
     {
         return currentLevel;
+    }
+    public void GetDestroy()
+    {
+        Destroy(gameObject);
     }
 }
