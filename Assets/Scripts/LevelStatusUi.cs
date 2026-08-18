@@ -5,35 +5,47 @@ using UnityEngine.UI;
 
 public class LevelStatusUi : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI dataText;
-    [SerializeField] private TextMeshProUGUI labelText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI coinText;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Image fuelImage;
-    private void Start()
-    {
-        AddLabelText();
-    }
-
     private void Update()
     {
         UpdateDataText();
     }
     private void UpdateDataText()
     {
-        dataText.text =
-            LevelManager.Instance.GetCurrentLevel() + "\n" +
-            GameManager.Instance.GetCurrentCoins() + ":" + GameManager.Instance.GetTotatCoins() + "\n" +
-            GameManager.Instance.GetScore() + "\n" +
-            Mathf.Round(GameManager.Instance.GetTime()) + "\n" +
-            Mathf.Round(Lander.Instance.GetFuel()) * 10 ;
+        UpdateLevelText();
+        UpdateCoinText();
+        UpdateScore();
+        UpdateTimer();
+        UpdateFuelBar();
+        //Mathf.Round(Lander.Instance.GetFuel()) * 10 ;    
+    }
+
+    private void UpdateFuelBar()
+    {
         fuelImage.fillAmount = Lander.Instance.GetFuelAmountNormalized();
     }
-    private void AddLabelText()
+
+    private void UpdateTimer()
     {
-        labelText.text =
-            "Level: \n" +
-            "Coin: \n" +
-            "Score: \n" +
-            "Time: \n" +
-            "Fuel:";
+        timerText.text = "" + Mathf.Round(GameManager.Instance.GetTime());
+    }
+
+    private void UpdateScore()
+    {
+        scoreText.text = "Score: " + GameManager.Instance.GetScore();
+    }
+
+    private void UpdateCoinText()
+    {
+        coinText.text = "Coin: " + GameManager.Instance.GetCurrentCoins() + ":" + GameManager.Instance.GetTotatCoins();
+    }
+
+    private void UpdateLevelText()
+    {
+        levelText.text = "Level: " + LevelManager.Instance.GetCurrentLevel();
     }
 }
