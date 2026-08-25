@@ -118,6 +118,15 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""11a73a8d-48e3-4d44-8d49-2c3cc7fca448"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -136,6 +145,17 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""5e5cd7a8-2ad7-4025-9383-9ea47215dc91"",
                     ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ca6eada-f197-4d5f-a78c-2f04d3471244"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -167,6 +187,17 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a13bb0d8-8f88-43cd-a899-1935b99ac344"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""948dd66e-0bcf-434b-b20f-44749a924548"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
@@ -186,6 +217,28 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
                     ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c805d433-b732-459a-8e61-9afa1fb5d4f0"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb863bf8-5ff6-4467-a388-743b3a2b05f2"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -197,6 +250,7 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
         m_Lander_Up = m_Lander.FindAction("Up", throwIfNotFound: true);
         m_Lander_Left = m_Lander.FindAction("Left", throwIfNotFound: true);
         m_Lander_Right = m_Lander.FindAction("Right", throwIfNotFound: true);
+        m_Lander_Movement = m_Lander.FindAction("Movement", throwIfNotFound: true);
     }
 
     ~@LanderAction()
@@ -280,6 +334,7 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Lander_Up;
     private readonly InputAction m_Lander_Left;
     private readonly InputAction m_Lander_Right;
+    private readonly InputAction m_Lander_Movement;
     /// <summary>
     /// Provides access to input actions defined in input action map "Lander".
     /// </summary>
@@ -303,6 +358,10 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Lander/Right".
         /// </summary>
         public InputAction @Right => m_Wrapper.m_Lander_Right;
+        /// <summary>
+        /// Provides access to the underlying input action "Lander/Movement".
+        /// </summary>
+        public InputAction @Movement => m_Wrapper.m_Lander_Movement;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -338,6 +397,9 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
             @Right.started += instance.OnRight;
             @Right.performed += instance.OnRight;
             @Right.canceled += instance.OnRight;
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
         }
 
         /// <summary>
@@ -358,6 +420,9 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
             @Right.started -= instance.OnRight;
             @Right.performed -= instance.OnRight;
             @Right.canceled -= instance.OnRight;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
         }
 
         /// <summary>
@@ -419,5 +484,12 @@ public partial class @LanderAction: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMovement(InputAction.CallbackContext context);
     }
 }

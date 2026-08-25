@@ -8,8 +8,21 @@ public class GameInput : MonoBehaviour
      private LanderAction inputAction;
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         inputAction = new LanderAction();
+        inputAction.Enable();
+    }
+    private void OnDestroy()
+    {
+        inputAction.Disable();
     }
     public bool IsUpActionPressed()
     {
@@ -22,5 +35,13 @@ public class GameInput : MonoBehaviour
     public bool IsRightActionPressed()
     {
         return inputAction.Lander.Right.IsPressed();
+    }
+    public Vector2 GetMovementInput()
+    {
+        return inputAction.Lander.Movement.ReadValue<Vector2>();
+    }
+    public void GetDesrtoy()
+    {
+        Destroy(gameObject);
     }
 }

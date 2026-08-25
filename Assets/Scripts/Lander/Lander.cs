@@ -55,7 +55,8 @@ public class Lander : MonoBehaviour
             case State.WaitingToStart:
                 if(GameInput.Instance.IsUpActionPressed() ||
                     GameInput.Instance.IsLeftActionPressed() ||
-                    GameInput.Instance.IsRightActionPressed() )
+                    GameInput.Instance.IsRightActionPressed() ||
+                    GameInput.Instance.GetMovementInput() != Vector2.zero)
                 {
                     landerRigidbody2D.gravityScale = GRAVITY_NORMAL;
                     SetState(State.Normal);
@@ -84,20 +85,21 @@ public class Lander : MonoBehaviour
     }
     private void LanderMovement()
     {
+        float gamepadDeadzone = .3f;
         onBeforeForce?.Invoke(this, EventArgs.Empty);
-        if (GameInput.Instance.IsUpActionPressed())
+        if (GameInput.Instance.IsUpActionPressed() || GameInput.Instance.GetMovementInput().y > gamepadDeadzone)
         {
             landerRigidbody2D.AddForce(force * transform.up * Time.deltaTime);
             FuelConsumption(0.6f);
             onUpForce?.Invoke(this, EventArgs.Empty);
         }
-        if (GameInput.Instance.IsLeftActionPressed())
+        if (GameInput.Instance.IsLeftActionPressed() || GameInput.Instance.GetMovementInput().x < -gamepadDeadzone)
         {
             landerRigidbody2D.AddTorque(torque * Time.deltaTime);
             FuelConsumption(0.2f);
             onLeftForce?.Invoke(this, EventArgs.Empty);
         }
-        if (GameInput.Instance.IsRightActionPressed())
+        if (GameInput.Instance.IsRightActionPressed() || GameInput.Instance.GetMovementInput().x > gamepadDeadzone)
         {
             landerRigidbody2D.AddTorque(-torque * Time.deltaTime);
             FuelConsumption(0.2f);
@@ -124,7 +126,7 @@ public class Lander : MonoBehaviour
         int score;
 
         if (!collision2D.gameObject.TryGetComponent(out LandingPad landingPad)) {
-            if (GetHealth() <= 2)
+            if (GetHealth() <= 2 || fuelAmount <= 0)
             {
                 onLanded?.Invoke(this, new onLandedEventArgs
                 {
