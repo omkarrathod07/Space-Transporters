@@ -13,6 +13,7 @@ public class GameCompleteManager : MonoBehaviour
         {
             OptionsController.Instance.GetDesrtoy();
             LevelManager.Instance.GetDestroy();
+            GameInput.Instance.GetDesrtoy();
             Invoke("GotoStartMenu", 2f);
         });
     }
