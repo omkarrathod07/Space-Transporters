@@ -2853,6 +2853,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1575063967606904849, guid: 78e2f408aed8f35428d11dd4075254bb, type: 3}
   m_PrefabInstance: {fileID: 1763514013}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1836080206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836080208}
+  - component: {fileID: 1836080207}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1836080207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836080206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f7d137c0ba71a4ab6ad5c1d888a020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  fuelPickupAudio: {fileID: 8300000, guid: fbd9c5bf252a6c14b9bb3a84dba2510c, type: 3}
+  coinPickupAudio: {fileID: 8300000, guid: 4286836a473df634692d7fc2988b47bd, type: 3}
+  crashAudio: {fileID: 8300000, guid: 4c9f9d63f11fa4d4ca1c537cd058256d, type: 3}
+  LandedSuccessfulyAudio: {fileID: 8300000, guid: 6d68f74438f613b45b2181d4e917474c, type: 3}
+--- !u!4 &1836080208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836080206}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1902794098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 270527314877537024, guid: f7010bb3a5a5d4c4aad2e2971a99d04b, type: 3}
@@ -3319,3 +3367,4 @@ SceneRoots:
   - {fileID: 523665793}
   - {fileID: 25778648}
   - {fileID: 766948270}
+  - {fileID: 1836080208}
