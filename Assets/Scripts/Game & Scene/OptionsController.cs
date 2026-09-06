@@ -64,12 +64,10 @@ public class OptionsController : MonoBehaviour
     private void SetJoystick()
     {
         joystick = joystickToggle.isOn;
-        Debug.Log(joystick);
     }
     private void SetDifficultyLevel()
     {
         difficultyLevel = difficultyDropDown.value;
-        Debug.Log(GetDifficultyLevel());
     }
     public int GetDifficultyLevel()
     {
