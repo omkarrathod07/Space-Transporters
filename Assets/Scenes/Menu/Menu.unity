@@ -1145,8 +1145,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1825016728}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1575,7 +1575,6 @@ MonoBehaviour:
   pcControlInfo: {fileID: 1958610380}
   pcControlButton: {fileID: 1958610379}
   joystickToggle: {fileID: 828410659}
-  difficultyLevel: 0
   difficultyInfo: {fileID: 532747248}
   difficultyButton: {fileID: 532747247}
   difficultyDropDown: {fileID: 532747246}

@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using Unity.VectorGraphics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,11 +15,12 @@ public class OptionsController : MonoBehaviour
     [SerializeField] private Button pcControlButton;
     [SerializeField] private Toggle joystickToggle;
     [Header("Difficulty")]
-    [SerializeField] private int difficultyLevel;
+    private int difficultyLevel;
     [SerializeField] private GameObject difficultyInfo;
     [SerializeField] private Button difficultyButton;
     [SerializeField] private TMP_Dropdown difficultyDropDown;
     [Header("Audio & Music")]
+    private float music = 0;
     [SerializeField] private Button audioButton;
     [SerializeField] private GameObject audioSetting;
     [SerializeField] private Slider audioSlider;
@@ -49,6 +51,7 @@ public class OptionsController : MonoBehaviour
         pcControlInfo.SetActive(false);
         difficultyInfo.SetActive(false);
         audioSetting.SetActive(false);
+        audioSlider.value = 0.7f;
         joystickToggle.gameObject.SetActive(false);
         pcControlButton.onClick.AddListener(() =>
         {
@@ -75,10 +78,21 @@ public class OptionsController : MonoBehaviour
         {
             SetDifficultyLevel();
             SetJoystick();
+            SetAudio();
             menuOption.SetActive(true);
             optionMenu.SetActive(false);
         });
     }
+    private void Update()
+    {
+        audioValue.text = Mathf.Round(audioSlider.value * 100).ToString();
+    }
+    private void SetAudio()
+    {
+        music = audioSlider.value;
+        Debug.LogWarning(music);
+    }
+
     private void SetJoystick()
     {
         joystick = joystickToggle.isOn;
