@@ -25,6 +25,7 @@ public class OptionsController : MonoBehaviour
     [SerializeField] private GameObject audioSetting;
     [SerializeField] private Slider audioSlider;
     [SerializeField] private TextMeshProUGUI audioValue;
+    [SerializeField] private AudioSource musicSource;
     [Header("Menu Button")]
     [SerializeField] private GameObject menuOption;
     [SerializeField] private GameObject optionMenu;
@@ -86,11 +87,11 @@ public class OptionsController : MonoBehaviour
     private void Update()
     {
         audioValue.text = Mathf.Round(audioSlider.value * 100).ToString();
+        musicSource.volume = audioSlider.value;
     }
     private void SetAudio()
     {
         music = audioSlider.value;
-        Debug.LogWarning(music);
     }
 
     private void SetJoystick()
