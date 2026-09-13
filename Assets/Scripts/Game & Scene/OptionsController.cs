@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using Unity.VectorGraphics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,16 +10,26 @@ public class OptionsController : MonoBehaviour
 {
     public static OptionsController Instance;
     private bool joystick;
-    [SerializeField] private int difficultyLevel;
+    [Header("PC Controller")]
     [SerializeField] private GameObject pcControlInfo;
     [SerializeField] private Button pcControlButton;
+    [SerializeField] private Toggle joystickToggle;
+    [Header("Difficulty")]
+    private int difficultyLevel;
     [SerializeField] private GameObject difficultyInfo;
     [SerializeField] private Button difficultyButton;
     [SerializeField] private TMP_Dropdown difficultyDropDown;
-    [SerializeField] private Toggle joystickToggle;
-    [SerializeField] private Button applyButton;
+    [Header("Audio & Music")]
+    private float music = 0;
+    [SerializeField] private Button audioButton;
+    [SerializeField] private GameObject audioSetting;
+    [SerializeField] private Slider audioSlider;
+    [SerializeField] private TextMeshProUGUI audioValue;
+    [SerializeField] private AudioSource musicSource;
+    [Header("Menu Button")]
     [SerializeField] private GameObject menuOption;
     [SerializeField] private GameObject optionMenu;
+    [SerializeField] private Button applyButton;
     private void Awake()
     {
         if (Instance == null)
@@ -40,27 +51,49 @@ public class OptionsController : MonoBehaviour
         }
         pcControlInfo.SetActive(false);
         difficultyInfo.SetActive(false);
+        audioSetting.SetActive(false);
+        audioSlider.value = 0.7f;
         joystickToggle.gameObject.SetActive(false);
         pcControlButton.onClick.AddListener(() =>
         {
             pcControlInfo.SetActive(true);
             joystickToggle.gameObject.SetActive(true);
             difficultyInfo.SetActive(false);
+            audioSetting.SetActive(false);
         });
         difficultyButton.onClick.AddListener(() =>
         {
             pcControlInfo.SetActive(false);
             joystickToggle.gameObject.SetActive(false);
             difficultyInfo.SetActive(true);
+            audioSetting.SetActive(false);
+        });
+        audioButton.onClick.AddListener(() =>
+        {
+            pcControlInfo.SetActive(false);
+            joystickToggle.gameObject.SetActive(false);
+            difficultyInfo.SetActive(false);
+            audioSetting.SetActive(true);
         });
         applyButton.onClick.AddListener(() =>
         {
             SetDifficultyLevel();
             SetJoystick();
+            SetAudio();
             menuOption.SetActive(true);
             optionMenu.SetActive(false);
         });
     }
+    private void Update()
+    {
+        audioValue.text = Mathf.Round(audioSlider.value * 100).ToString();
+        musicSource.volume = audioSlider.value;
+    }
+    private void SetAudio()
+    {
+        music = audioSlider.value;
+    }
+
     private void SetJoystick()
     {
         joystick = joystickToggle.isOn;
