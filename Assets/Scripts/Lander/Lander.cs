@@ -127,7 +127,7 @@ public class Lander : MonoBehaviour
         int score;
 
         if (!collision2D.gameObject.TryGetComponent(out LandingPad landingPad)) {
-            if (GetHealth() <= 2 || fuelAmount <= 0)
+            if (GetHealth() <= 2 || fuelAmount <= 1)
             {
                 onLanded?.Invoke(this, new onLandedEventArgs
                 {

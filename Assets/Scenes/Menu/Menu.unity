@@ -645,7 +645,7 @@ RectTransform:
   m_Father: {fileID: 1554569007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1304,6 +1304,7 @@ GameObject:
   - component: {fileID: 984871353}
   - component: {fileID: 984871352}
   - component: {fileID: 984871351}
+  - component: {fileID: 984871354}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1385,6 +1386,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &984871354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984871350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &994093417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,7 +2683,7 @@ RectTransform:
   m_Father: {fileID: 1192221708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2688,6 +2733,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1243762489}
     m_Modifications:
+    - target: {fileID: 454665941988306443, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -475.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 454665941988306443, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -158.63907
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476621773430635951, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -475.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476621773430635951, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 110.179924
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596918837834754443, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -475
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596918837834754443, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 379
+      objectReference: {fileID: 0}
     - target: {fileID: 3670684150976684519, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2770,15 +2839,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4490298661984475489, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6196631243835826792, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6643799148826279576, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
       propertyPath: m_Name
       value: PC Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329981753951798604, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 78.999954
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329981753951798604, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -398.51093
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515068525060916354, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 981.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515068525060916354, guid: 5bd0230c8e433f84d87c6a547b1e05b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -490.722
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2821,7 +2906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1972717027
 RectTransform:
   m_ObjectHideFlags: 0

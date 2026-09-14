@@ -44,16 +44,19 @@ public class OptionsController : MonoBehaviour
     }
     private void Start()
     {
-        if(Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            joystickToggle.interactable = true;
             joystickToggle.isOn = false;
+        }
+        else
+        {
+            joystickToggle.isOn = true;
         }
         pcControlInfo.SetActive(false);
         difficultyInfo.SetActive(false);
         audioSetting.SetActive(false);
-        audioSlider.value = 0.7f;
         joystickToggle.gameObject.SetActive(false);
+        audioSlider.value = 0.7f;
         pcControlButton.onClick.AddListener(() =>
         {
             pcControlInfo.SetActive(true);
