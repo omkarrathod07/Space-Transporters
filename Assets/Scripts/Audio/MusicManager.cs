@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    private static MusicManager Instance;
+    public static MusicManager Instance;
     private static float musicTime;
     private AudioSource musicSource;
 
@@ -23,5 +23,9 @@ public class MusicManager : MonoBehaviour
     private void Update()
     {
         musicTime = musicSource.time;
+    }
+    public void GetDesrtoy()
+    {
+        Destroy(gameObject);
     }
 }

@@ -89,8 +89,11 @@ public class OptionsController : MonoBehaviour
     }
     private void Update()
     {
-        audioValue.text = Mathf.Round(audioSlider.value * 100).ToString();
-        musicSource.volume = audioSlider.value;
+        if(audioSlider != null && audioValue != null)
+        {
+            audioValue.text = Mathf.Round(audioSlider.value * 100).ToString();
+            musicSource.volume = audioSlider.value;
+        }
     }
     private void SetAudio()
     {
