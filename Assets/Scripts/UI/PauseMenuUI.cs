@@ -26,10 +26,11 @@ public class PauseMenuUI : MonoBehaviour
         });
         menuButton.onClick.AddListener(() =>
         {
+            ImplementTime(1);
             OptionsController.Instance.GetDesrtoy();
             LevelManager.Instance.GetDestroy();
             GameInput.Instance.GetDesrtoy();
-            Invoke("GotoStartMenu", 1.5f);
+            Invoke("GotoStartMenu", 0.5f);
         });
     }
     private void ImplementTime(int time)
@@ -46,6 +47,7 @@ public class PauseMenuUI : MonoBehaviour
     }
     private void GotoStartMenu()
     {
+        MusicManager.Instance.GetDesrtoy();
         SceneManager.LoadScene(1);
     }
 }
