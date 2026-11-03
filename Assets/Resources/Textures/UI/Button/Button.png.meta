@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: a710a311f84f2a04a854260eabe332a8
+guid: dc51c6f41f171de46917f723aebea826
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6499742637594167410
-    second: Splash Icon_0
-  - first:
-      213: -1264288755408922599
-    second: Splash Icon_1
+      213: 649223268058989734
+    second: Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Splash Icon
+      name: Button_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        y: 7
+        width: 206
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91894505318547ee0800000000000000
-      internalID: -1264288755408922599
+      spriteID: 6a403906f11820900800000000000000
+      internalID: 649223268058989734
       vertices: []
       indices: 
       edges: []
@@ -154,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b6c12d38b75f4c141acd12da84e074f7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -164,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Splash Icon: -1264288755408922599
-      Splash Icon_0: 6499742637594167410
+      Button_0: 649223268058989734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

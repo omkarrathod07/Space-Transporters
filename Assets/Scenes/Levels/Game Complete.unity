@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &92802432
 RectTransform:
   m_ObjectHideFlags: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e4b70b87e6abe2e43b4ad40f32408558, type: 3}
+  m_Sprite: {fileID: -7020922751645015488, guid: 46de6028f1f47b043b92219e8286a6ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -676,7 +676,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -686,10 +686,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 3494561937877580336, guid: 45202856df1dece40828a402a072cc4a, type: 3}
+    m_PressedSprite: {fileID: 8113041715628162572, guid: f46452f85900ed949acc4477ee9d2353, type: 3}
+    m_SelectedSprite: {fileID: 649223268058989734, guid: dc51c6f41f171de46917f723aebea826, type: 3}
+    m_DisabledSprite: {fileID: -2281827011979784763, guid: 6a171b7e2d0f0334b8add3a4b51f8a7d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 649223268058989734, guid: fbb9f039e73848f4880f29f3f816d8b5, type: 3}
+  m_Sprite: {fileID: 649223268058989734, guid: dc51c6f41f171de46917f723aebea826, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -989,8 +989,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 0, y: -400}
+  m_AnchoredPosition: {x: 0, y: -101.50003}
+  m_SizeDelta: {x: 0, y: -396.9999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098965208
 MonoBehaviour:
@@ -1012,10 +1012,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Thank you for playing. I am glad you tried and completed the game.
-
-    -
-    rathod omkar'
+  m_text: Thank you for playing. I am glad you tried and completed the game.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d68b0a6a450a29b43b9792f884128d26, type: 2}
   m_sharedMaterial: {fileID: -3669088263767365471, guid: d68b0a6a450a29b43b9792f884128d26, type: 2}
@@ -1081,7 +1078,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -199.22894, z: 0, w: 91.00771}
+  m_margin: {x: 0, y: 74.13422, z: 0, w: 91.00771}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
