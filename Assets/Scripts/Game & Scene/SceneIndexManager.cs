@@ -21,6 +21,8 @@ public class SceneIndexManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        startingLevelIndex = SaveManager.instance.GetSavedLevelIndex();
+        currentLevel = startingLevelIndex;
     }
     public void RestartLevel()
     {
@@ -29,7 +31,8 @@ public class SceneIndexManager : MonoBehaviour
     public void NextLevel()
     {
         startingLevelIndex++;
-        currentLevel++;
+        currentLevel = startingLevelIndex - 1;
+        SaveManager.instance.SetSavedLevelIndex(startingLevelIndex);
         SceneManager.LoadScene(startingLevelIndex);
     }
     public int GetCurrentLevel()
