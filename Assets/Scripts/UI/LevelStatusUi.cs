@@ -46,6 +46,6 @@ public class LevelStatusUi : MonoBehaviour
 
     private void UpdateLevelText()
     {
-        levelText.text = "Level: " + LevelManager.Instance.GetCurrentLevel();
+        levelText.text = "Level: " + SceneIndexManager.Instance.GetCurrentLevel();
     }
 }

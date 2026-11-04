@@ -12,7 +12,7 @@ public class GameCompleteManager : MonoBehaviour
         menuButton.onClick.AddListener(() =>
         {
             OptionsController.Instance.GetDesrtoy();
-            LevelManager.Instance.GetDestroy();
+            SceneIndexManager.Instance.GetDestroy();
             GameInput.Instance.GetDesrtoy();
             Invoke("GotoStartMenu", 2f);
         });

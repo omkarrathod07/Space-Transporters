@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class SceneIndexManager : MonoBehaviour
 {
     [SerializeField] private int currentLevel;
     [SerializeField] private int startingLevelIndex;
-    public static LevelManager Instance;
+    public static SceneIndexManager Instance;
 
     private void Awake()
     {
