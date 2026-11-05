@@ -38,6 +38,7 @@ public class SaveManager : MonoBehaviour
     public void SetSavedLevelIndex(int levelIndex)
     {
         PlayerPrefs.SetInt(savedLevelIndexKey, levelIndex);
+        PlayerPrefs.Save();
     }
     public float GetSavedAudio()
     {
@@ -46,6 +47,7 @@ public class SaveManager : MonoBehaviour
     public void SetSavedAudio(float audio)
     {
         PlayerPrefs.SetFloat(savedAudioKey, audio);
+        PlayerPrefs.Save();
     }
     public int GetSavedDifficulty()
     {
@@ -54,5 +56,6 @@ public class SaveManager : MonoBehaviour
     public void SetSavedDifficulty(int difficulty)
     {
         PlayerPrefs.SetInt(saveDifficultyKey, difficulty);
+        PlayerPrefs.Save();
     }
 }

@@ -48,6 +48,7 @@ public class OptionsController : MonoBehaviour
     {
         audioSlider.value = SaveManager.instance.GetSavedAudio();
         musicSource.volume = SaveManager.instance.GetSavedAudio();
+        music = SaveManager.instance.GetSavedAudio();
         difficultyLevel = SaveManager.instance.GetSavedDifficulty();
         difficultyDropDown.value = SaveManager.instance.GetSavedDifficulty();
 
