@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] private Button startButton;
+    [SerializeField] private Button loadButton;
     [SerializeField] private Button optionButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private int startingLevelIndex;
@@ -20,6 +21,10 @@ public class MenuController : MonoBehaviour
         {
             LoadFirstLevel(startingLevelIndex);
         });
+        loadButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene(SaveManager.instance.GetSavedLevelIndex());
+        });
         optionButton.onClick.AddListener(() =>
         {
             menuOption.SetActive(false);
@@ -33,6 +38,7 @@ public class MenuController : MonoBehaviour
 
     private void LoadFirstLevel(int index)
     {
+        SaveManager.instance.SetSavedLevelIndex(index);
         SceneManager.LoadScene(index);
     }
 }

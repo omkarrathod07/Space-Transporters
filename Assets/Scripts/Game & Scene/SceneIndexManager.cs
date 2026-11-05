@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class SceneIndexManager : MonoBehaviour
 {
     [SerializeField] private int currentLevel;
     [SerializeField] private int startingLevelIndex;
-    public static LevelManager Instance;
+    public static SceneIndexManager Instance;
 
     private void Awake()
     {
@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        startingLevelIndex = SaveManager.instance.GetSavedLevelIndex();
+        currentLevel = startingLevelIndex;
     }
     public void RestartLevel()
     {
@@ -29,7 +31,8 @@ public class LevelManager : MonoBehaviour
     public void NextLevel()
     {
         startingLevelIndex++;
-        currentLevel++;
+        currentLevel = startingLevelIndex - 1;
+        SaveManager.instance.SetSavedLevelIndex(startingLevelIndex);
         SceneManager.LoadScene(startingLevelIndex);
     }
     public int GetCurrentLevel()

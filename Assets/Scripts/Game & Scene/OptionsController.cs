@@ -41,7 +41,19 @@ public class OptionsController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        LoadSavedData();
     }
+
+    private void LoadSavedData()
+    {
+        audioSlider.value = SaveManager.instance.GetSavedAudio();
+        musicSource.volume = SaveManager.instance.GetSavedAudio();
+        music = SaveManager.instance.GetSavedAudio();
+        difficultyLevel = SaveManager.instance.GetSavedDifficulty();
+        difficultyDropDown.value = SaveManager.instance.GetSavedDifficulty();
+
+    }
+
     private void Start()
     {
         if (Application.platform == RuntimePlatform.WindowsPlayer)
@@ -98,6 +110,7 @@ public class OptionsController : MonoBehaviour
     private void SetAudio()
     {
         music = audioSlider.value;
+        SaveManager.instance.SetSavedAudio(music);
     }
 
     private void SetJoystick()
@@ -107,6 +120,7 @@ public class OptionsController : MonoBehaviour
     private void SetDifficultyLevel()
     {
         difficultyLevel = difficultyDropDown.value;
+        SaveManager.instance.SetSavedDifficulty(difficultyLevel);
     }
     public int GetDifficultyLevel()
     {

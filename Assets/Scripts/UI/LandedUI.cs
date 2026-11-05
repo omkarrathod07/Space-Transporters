@@ -16,11 +16,11 @@ public class LandedUI : MonoBehaviour
     {
         restartButton.onClick.AddListener(() =>
         {
-            LevelManager.Instance.RestartLevel();
+            SceneIndexManager.Instance.RestartLevel();
         });
         nextButton.onClick.AddListener(() =>
         {
-            LevelManager.Instance.NextLevel();
+            SceneIndexManager.Instance.NextLevel();
         });
     }
 

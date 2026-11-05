@@ -14,7 +14,7 @@ public class PauseMenuUI : MonoBehaviour
         restartButton.onClick.AddListener(() =>
         {
             ImplementTime(1);
-            LevelManager.Instance.RestartLevel();
+            SceneIndexManager.Instance.RestartLevel();
         });
         pauseButton.onClick.AddListener(() =>
         {
@@ -28,7 +28,7 @@ public class PauseMenuUI : MonoBehaviour
         {
             ImplementTime(1);
             OptionsController.Instance.GetDesrtoy();
-            LevelManager.Instance.GetDestroy();
+            SceneIndexManager.Instance.GetDestroy();
             GameInput.Instance.GetDesrtoy();
             Invoke("GotoStartMenu", 0.5f);
         });
