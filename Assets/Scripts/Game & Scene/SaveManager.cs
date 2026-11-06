@@ -33,7 +33,7 @@ public class SaveManager : MonoBehaviour
 
     public int GetSavedLevelIndex()
     {
-        return savedLevelIndex;
+        return PlayerPrefs.GetInt(savedLevelIndexKey, 3);
     }
     public void SetSavedLevelIndex(int levelIndex)
     {
@@ -42,7 +42,7 @@ public class SaveManager : MonoBehaviour
     }
     public float GetSavedAudio()
     {
-        return savedAudio;
+        return PlayerPrefs.GetFloat(savedAudioKey, 0.5f);
     }
     public void SetSavedAudio(float audio)
     {
@@ -51,7 +51,7 @@ public class SaveManager : MonoBehaviour
     }
     public int GetSavedDifficulty()
     {
-        return saveDifficulty;
+        return PlayerPrefs.GetInt(saveDifficultyKey, 2);
     }
     public void SetSavedDifficulty(int difficulty)
     {
