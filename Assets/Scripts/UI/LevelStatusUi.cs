@@ -10,6 +10,7 @@ public class LevelStatusUi : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Image fuelImage;
+    [SerializeField] private Image landerHealthImage;
     private void Update()
     {
         UpdateDataText();
@@ -21,6 +22,7 @@ public class LevelStatusUi : MonoBehaviour
         UpdateScore();
         UpdateTimer();
         UpdateFuelBar();
+        UpdateLanderHealthBar();
         //Mathf.Round(Lander.Instance.GetFuel()) * 10 ;    
     }
 
@@ -28,7 +30,11 @@ public class LevelStatusUi : MonoBehaviour
     {
         fuelImage.fillAmount = Lander.Instance.GetFuelAmountNormalized();
     }
-
+    private void UpdateLanderHealthBar()
+    {
+        float health = Lander.Instance.GetHealth() / 10;
+        landerHealthImage.fillAmount = health;
+    }
     private void UpdateTimer()
     {
         timerText.text = "" + Mathf.Round(GameManager.Instance.GetTime());
